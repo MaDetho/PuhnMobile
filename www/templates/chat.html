@@ -1,10 +1,11 @@
-<ion-view title="PuhnMobile">
-  <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
-  <ion-content class="has-header">
-    <div class="item"><div class="avatar"><img src="http://www.typo3forum.net/forum/customavatars/avatar2126_1.gif"></div><div class="content"><div class="normal"><p>Hello</p><time datetime="7:02 AM"></time></div></div></div>
-      <div class="item"><div class="avatar"><img src="http://www.typo3forum.net/forum/customavatars/avatar2126_1.gif"></div><div class="content"><div class="normal"><p>Hello</p><time datetime="7:02 AM"></time></div></div></div>
-      <div class="item"><div class="avatar"><img src="http://www.typo3forum.net/forum/customavatars/avatar2126_1.gif"></div><div class="content"><div class="normal"><p>Hello</p><time datetime="7:02 AM"></time></div></div></div>
-  </ion-content>
-</ion-view>
+<ion-slide-box on-slide-changed="slideHasChanged($index)">
+  <ion-slide>
+    <div class="box blue"><h1>BLUE</h1></div>
+  </ion-slide>
+  <ion-slide>
+    <div class="box yellow"><h1>YELLOW</h1></div>
+  </ion-slide>
+  <ion-slide>
+    <div class="box pink"><h1>PINK</h1></div>
+  </ion-slide>
+</ion-slide-box>
