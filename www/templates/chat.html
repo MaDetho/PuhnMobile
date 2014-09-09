@@ -2,13 +2,14 @@
 	
 	<ion-slide>
     	<div class="friends">
-    		friends
+            <li ng-repeat="user in users" data-name="{{user.firstname}}"><div class="avatar" data-status="online"><img width="50" height="50" src="{{user.avatar}}"></div><div>{{user.firstname}} : {{user.status}}</div></li>
     	</div>
   	</ion-slide>
 
 	<ion-slide>
 		<div class="chat">
-			chat
+            <li ng-repeat="lastMessage in lastMessages">{{lastMessage._creator.usr}}: {{lastMessage.msg}}</li>
+			<li ng-repeat="message in messages">{{message.user.usr}}: {{message.msg}}</li>
 		</div>
 	</ion-slide>
 
