@@ -27,7 +27,7 @@
 </ion-content>
 
 <ion-footer-bar>
-	
-	<input type="text" placeholder="Send a message">
-
+	<form ng-submit="sendMessage()">
+	   <input type="text" placeholder="Send a message" ng-model="messageData.msg">
+    </form>
 </ion-footer-bar>

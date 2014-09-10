@@ -3,6 +3,7 @@ angular.module('starter.controllers', ['services', "angularMoment"])
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout, socket) {
     // Form data for the login modal
     $scope.loginData = {};
+    $scope.messageData = {};
     $scope.users = [];
     $scope.messages = [];
     $scope.lastMessages = [];
@@ -47,6 +48,11 @@ angular.module('starter.controllers', ['services', "angularMoment"])
                 alert('Login failed.');
             }
         });
+    };
+    
+    $scope.sendMessage = function () {
+        socket.emit('send message', $scope.messageData.msg);
+        $scope.messageData.msg = '';
     };
 
     socket.on('user status update', function (userlist) {
