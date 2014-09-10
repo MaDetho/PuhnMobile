@@ -7,7 +7,7 @@ html, body {
   height: 100%; }
 
 body {
-  background: #161719;
+  background: #e8eaf0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
@@ -21,34 +21,27 @@ a {
     color: blue;
     text-decoration: underline; }
 
-.slider {
-  height: 100%; }
-
-.chat {
-  width: 100%;
-  height: 100%;
+.scroll {
   background: #e8eaf0;
-  padding: 20px;
-  overflow-x: hidden;
-  overflow-y: scroll; }
-  .chat .message {
+  padding: 20px; }
+  .scroll .message {
     min-height: 50px;
     position: relative;
     margin-bottom: 20px; }
-    .chat .message:last-child {
+    .scroll .message:last-child {
       margin-bottom: 0; }
-    .chat .message .avatar {
+    .scroll .message .avatar {
       width: 50px;
       height: 50px;
       position: absolute;
       top: 0;
       left: 0; }
-      .chat .message .avatar img {
+      .scroll .message .avatar img {
         width: 50px;
         height: 50px;
         border-radius: 100%;
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); }
-    .chat .message .content {
+    .scroll .message .content {
       width: calc(100% - 60px);
       min-height: 50px;
       background: #fff;
@@ -56,14 +49,14 @@ a {
       border-radius: 3px;
       margin-left: 60px;
       display: inline-block; }
-      .chat .message .content p img {
+      .scroll .message .content p img {
         max-width: 100%;
         vertical-align: bottom;
         border-radius: 3px; }
-      .chat .message .content .normal {
+      .scroll .message .content .normal {
         padding: 16px 50px 12px 14px;
         position: relative; }
-      .chat .message .content time {
+      .scroll .message .content time {
         width: auto;
         height: 10px;
         font-size: 12px;
@@ -73,13 +66,14 @@ a {
         position: absolute;
         top: 20px;
         right: 15px; }
-      .chat .message .content .append {
+      .scroll .message .content .append {
         padding: 13px 50px 13px 15px;
         border-top: 1px solid #ddd;
         position: relative; }
 
-.friends {
-  width: 100%;
-  height: 100%;
-  background: #222326;
-  color: #fff; }
+.bar {
+  background: #fff;
+  box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.1);
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px; }
