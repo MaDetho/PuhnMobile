@@ -1,39 +1,42 @@
 <ion-slide-box on-slide-changed="slideHasChanged($index)" show-pager="false" active-slide="1">
 	
 	<ion-slide>
-    	<div class="friends">
-            <li ng-repeat="user in users" data-name="{{user.firstname}}"><div class="avatar" data-status="online"><img width="50" height="50" src="{{user.avatar}}"></div><div>{{user.firstname}} : {{user.status}}</div></li>
-    	</div>
+        <ion-content>
+            <div class="friends">
+                <li ng-repeat="user in users" data-name="{{user.firstname}}"><div class="avatar" data-status="online"><img width="50" height="50" src="{{user.avatar}}"></div><div>{{user.firstname}} : {{user.status}}</div></li>
+            </div>
+        </ion-content>
   	</ion-slide>
 
 	<ion-slide>
-		<div class="chat">
-	
-			<div class="message {{lastMessage._creator.usr}}" ng-repeat="lastMessage in lastMessages">
-				<div class="avatar">
-					<img src="{{lastMessage._creator.avatar}}">
-				</div>
-				<div class="content">
-					<div class="normal">
-						<p>{{lastMessage.msg}}</p>
-						<time datetime="2014-09-10T16:27:08.775Z">21m</time>
-					</div>
-				</div>
-			</div>
+        <ion-content>
+            <div class="chat">
 
-            <div class="message {{message.user.usr}}" ng-repeat="message in messages">
-				<div class="avatar">
-					<img src="{{message.user.avatar}}">
-				</div>
-				<div class="content">
-					<div class="normal">
-						<p>{{message.msg}}</p>
-						<time datetime="2014-09-10T16:27:08.775Z">21m</time>
-					</div>
-				</div>
-			</div>
+                <div class="message {{lastMessage._creator.usr}}" ng-repeat="lastMessage in lastMessages">
+                    <div class="avatar">
+                        <img src="{{lastMessage._creator.avatar}}">
+                    </div>
+                    <div class="content">
+                        <div class="normal">
+                            <p>{{lastMessage.msg}}</p>
+                            <time datetime="2014-09-10T16:27:08.775Z">21m</time>
+                        </div>
+                    </div>
+                </div>
 
-		</div>
+                <div class="message {{message.user.usr}}" ng-repeat="message in messages">
+                    <div class="avatar">
+                        <img src="{{message.user.avatar}}">
+                    </div>
+                    <div class="content">
+                        <div class="normal">
+                            <p>{{message.msg}}</p>
+                            <time datetime="2014-09-10T16:27:08.775Z">21m</time>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </ion-content>
 	</ion-slide>
-
 </ion-slide-box>
