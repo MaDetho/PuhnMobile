@@ -6,8 +6,8 @@
 		</div>
 		<div class="content">
 			<div class="normal">
-				<p>{{lastMessage.msg}}</p>
-				<time datetime="2014-09-10T16:27:08.775Z">21m</time>
+				<p ng-bind-html="lastMessage.msg"></p>
+				<time am-time-ago="lastMessage.created"></time>
 			</div>
 		</div>
 	</div>
@@ -18,8 +18,8 @@
 		</div>
 		<div class="content">
 			<div class="normal">
-				<p>{{message.msg}}</p>
-				<time datetime="2014-09-10T16:27:08.775Z">21m</time>
+				<p ng-bind-html="message.msg"></p>
+				<time am-time-ago="v.Dt"></time>
 			</div>
 		</div>
 	</div>

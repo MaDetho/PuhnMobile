@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['services'])
+angular.module('starter.controllers', ['services', "angularMoment"])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout, socket) {
     // Form data for the login modal
@@ -6,6 +6,9 @@ angular.module('starter.controllers', ['services'])
     $scope.users = [];
     $scope.messages = [];
     $scope.lastMessages = [];
+    $scope.v = {
+        Dt: Date.now()
+    }
 
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -58,4 +61,22 @@ angular.module('starter.controllers', ['services'])
         $scope.messages.push(message);
     });
 
-})
+});
+
+moment.lang('en', {
+    relativeTime : {
+        future: "in %s",
+        past:   "%s",
+        s:  "just now",
+        m:  "1m",
+        mm: "%m",
+        h:  "1h",
+        hh: "%h",
+        d:  "1d",
+        dd: "%dd",
+        M:  "1m",
+        MM: "%dm",
+        y:  "1y",
+        yy: "%dy"
+    }
+});
