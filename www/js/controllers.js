@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['services', "angularMoment"])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, socket) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, socket) {
     // Form data for the login modal
     $scope.loginData = {};
     $scope.messageData = {};
@@ -61,10 +61,12 @@ angular.module('starter.controllers', ['services', "angularMoment"])
     
     socket.on('load old messages', function (messages) {
         $scope.lastMessages  = messages;
+        $ionicScrollDelegate.scrollBottom(true);
 	});
 
     socket.on('new message', function(message){
         $scope.messages.push(message);
+        $ionicScrollDelegate.scrollBottom(true);
     });
 
 });
