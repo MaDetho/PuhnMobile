@@ -1,15 +1,12 @@
 angular.module('starter.controllers', ['services', "angularMoment"])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, socket) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, $ionicScrollDelegate, $ionicPopup, socket) {
     // Form data for the login modal
     $scope.loginData = {};
     $scope.messageData = {};
     $scope.users = [];
     $scope.messages = [];
     $scope.lastMessages = [];
-    $scope.v = {
-        Dt: Date.now()
-    }
 
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -37,7 +34,8 @@ angular.module('starter.controllers', ['services', "angularMoment"])
         var passwordVal = $scope.loginData.password;
         socket.emit('sign in', {
             username: usernameVal,
-            password: passwordVal
+            password: passwordVal,
+            mobile: true
         }, function (user) {
             if (user) {
                 $scope.closeLogin();
@@ -45,7 +43,10 @@ angular.module('starter.controllers', ['services', "angularMoment"])
                 socket.emit('get old messages');
                 socket.emit('get emoticons');
             } else {
-                alert('Login failed.');
+                $ionicPopup.alert({
+                    title: 'Login failed!',
+                    template: 'Please check your usernamen and password.'
+                });
             }
         });
     };
@@ -65,6 +66,7 @@ angular.module('starter.controllers', ['services', "angularMoment"])
 	});
 
     socket.on('new message', function(message){
+        message.time = Date.now();
         $scope.messages.push(message);
         $ionicScrollDelegate.scrollBottom(true);
     });
@@ -77,9 +79,9 @@ moment.lang('en', {
         past:   "%s",
         s:  "just now",
         m:  "1m",
-        mm: "%m",
+        mm: "%dm",
         h:  "1h",
-        hh: "%h",
+        hh: "%dh",
         d:  "1d",
         dd: "%dd",
         M:  "1m",
