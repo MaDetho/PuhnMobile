@@ -10,7 +10,8 @@ angular.module('starter.controllers', ['services', "angularMoment"])
 
     // Create the login modal that we will use later
     $ionicModal.fromTemplateUrl('templates/login.html', {
-        scope: $scope
+        scope: $scope,
+        animation: 'slide-in-up'
     }).then(function (modal) {
         $scope.modal = modal;
         $scope.modal.show();
@@ -35,7 +36,7 @@ angular.module('starter.controllers', ['services', "angularMoment"])
         socket.emit('sign in', {
             username: usernameVal,
             password: passwordVal,
-            mobile: true
+            onMobile: '1'
         }, function (user) {
             if (user) {
                 $scope.closeLogin();
